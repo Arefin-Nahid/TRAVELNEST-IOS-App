@@ -1,0 +1,51 @@
+{
+    "hotels": [
+        {
+            "id": "1",
+            "name": "Luxury Hotel & Spa",
+            "description": "Experience luxury at its finest with our world-class amenities and services.",
+            "location": "Cox's Bazar, Bangladesh",
+            "price": 199.99,
+            "rating": 4.8,
+            "reviews": 220,
+            "images": [
+                "hotel1_1",
+                "hotel1_2",
+                "hotel1_3"
+            ],
+            "amenities": [
+                "WiFi",
+                "Pool",
+                "Spa",
+                "Restaurant",
+                "Gym"
+            ],
+            "category": "Luxury",
+            "is_popular": true,
+            "is_featured": true
+        },
+        {
+            "id": "2",
+            "name": "Business Center Hotel",
+            "description": "Perfect for business travelers with modern facilities.",
+            "location": "Dhaka, Bangladesh",
+            "price": 149.99,
+            "rating": 4.5,
+            "reviews": 180,
+            "images": [
+                "hotel2_1",
+                "hotel2_2",
+                "hotel2_3"
+            ],
+            "amenities": [
+                "WiFi",
+                "Business Center",
+                "Restaurant",
+                "Gym"
+            ],
+            "category": "Business",
+            "is_popular": true,
+            "is_featured": false
+        }
+    ]
+} 
