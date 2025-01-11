@@ -60,18 +60,18 @@ To run this app, ensure you have the following:
 
 ## Authors
 
-- [Sayma Mridula](https://github.com/sayma-mridula)
-  Student ID: 2007036
+- **[Sayma Mridula](https://github.com/sayma-mridula)**  
+  Student ID: 2007036  
   Department of Computer Science and Engineering  
   Khulna University of Engineering & Technology, Khulna 9203.
 
-- [Prova Paul](https://github.com/ProvaPaul)
-  Student ID: 2007037 
+- **[Prova Paul](https://github.com/ProvaPaul)**  
+  Student ID: 2007037  
   Department of Computer Science and Engineering  
   Khulna University of Engineering & Technology, Khulna 9203.
 
-- [Arefin Nahid](https://github.com/Arefin-Nahid)
-  Student ID: 2007050
+- **[Arefin Nahid](https://github.com/Arefin-Nahid)**  
+  Student ID: 2007050  
   Department of Computer Science and Engineering  
   Khulna University of Engineering & Technology, Khulna 9203.
 
