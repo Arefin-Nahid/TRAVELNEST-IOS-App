@@ -2,6 +2,10 @@
 
 TRAVELNEST is an innovative iOS application designed to redefine hotel booking experiences. Developed with Swift, TRAVELNEST combines user-friendly design, secure authentication, and intelligent search features to create a seamless platform for all your accommodation needs.
 
+## Preview
+
+![preview img](/travelnest.png)
+
 ## Features
 
 - **User-Friendly Interface:** Navigate through the app effortlessly with an intuitive design and smooth transitions.

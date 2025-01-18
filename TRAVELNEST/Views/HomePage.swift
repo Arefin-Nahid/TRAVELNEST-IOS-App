@@ -36,6 +36,7 @@ struct HomePage: View {
                     VStack(spacing: 20) {
                         if searchText.isEmpty {
                             FeaturedHotelsSection(hotelViewModel: hotelViewModel)
+                            RecommendedHotelsSection(hotelViewModel: hotelViewModel)
                             CategoriesSection(selectedCategory: $selectedCategory)
                         }
                         
@@ -492,6 +493,106 @@ struct SpecialOfferCard: View {
         .shadow(color: .gray.opacity(0.2), radius: 5)
         .sheet(isPresented: $showingBooking) {
             BookingView(hotel: offer.hotel)
+        }
+    }
+}
+
+// Recommended Hotels Section
+struct RecommendedHotelsSection: View {
+    @ObservedObject var hotelViewModel: HotelViewModel
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 15) {
+            Text("Recommended For You")
+                .font(.title2)
+                .fontWeight(.bold)
+                .padding(.horizontal)
+            
+            if hotelViewModel.isLoading {
+                ProgressView()
+                    .frame(maxWidth: .infinity)
+            } else if hotelViewModel.recommendedHotels.isEmpty {
+                Text("No recommendations available yet")
+                    .foregroundColor(.gray)
+                    .frame(maxWidth: .infinity)
+            } else {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 15) {
+                        ForEach(hotelViewModel.recommendedHotels) { hotel in
+                            RecommendedHotelCard(hotel: hotel)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+            }
+        }
+    }
+}
+
+// Recommended Hotel Card
+struct RecommendedHotelCard: View {
+    let hotel: Hotel
+    @State private var showingBooking = false
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            // Image
+            if let firstImage = hotel.images.first {
+                Image(firstImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 200, height: 150)
+                    .cornerRadius(15)
+            }
+            
+            VStack(alignment: .leading, spacing: 5) {
+                Text(hotel.name)
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .lineLimit(1)
+                
+                HStack {
+                    Image(systemName: "location.fill")
+                        .foregroundColor(.gray)
+                    Text(hotel.location)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .lineLimit(1)
+                }
+                
+                HStack {
+                    ForEach(0..<5) { index in
+                        Image(systemName: index < Int(hotel.rating) ? "star.fill" : "star")
+                            .foregroundColor(.yellow)
+                            .font(.caption)
+                    }
+                }
+                
+                Text("$\(String(format: "%.2f", hotel.price))/night")
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.blue)
+                
+                Button(action: {
+                    showingBooking = true
+                }) {
+                    Text("Book Now")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 8)
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                }
+            }
+            .padding(10)
+        }
+        .frame(width: 200)
+        .background(Color.white)
+        .cornerRadius(15)
+        .shadow(color: .gray.opacity(0.2), radius: 5)
+        .sheet(isPresented: $showingBooking) {
+            BookingView(hotel: hotel)
         }
     }
 }

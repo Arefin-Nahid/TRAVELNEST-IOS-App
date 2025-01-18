@@ -10,6 +10,7 @@ class HotelViewModel: ObservableObject {
     @Published var lastBooking: Booking?
     @Published var isLoading = false
     @Published var errorMessage = ""
+    @Published var recommendedHotels: [Hotel] = []
     
     private let hotelService: HotelService
     
@@ -54,6 +55,18 @@ class HotelViewModel: ObservableObject {
         self.allHotels = hotels
         self.featuredHotels = hotels.filter { $0.isFeatured }
         self.popularHotels = hotels.filter { $0.isPopular }
+    }
+    
+    func fetchRecommendedHotels() {
+        // This is a placeholder implementation
+        // In a real app, you would:
+        // 1. Get user's booking history
+        // 2. Analyze their preferences (location, price range, amenities)
+        // 3. Find similar hotels
+        // 4. Sort by relevance
+        
+        // For now, we'll just show some random hotels as recommendations
+        recommendedHotels = allHotels.shuffled().prefix(5).map { $0 }
     }
 }
 
